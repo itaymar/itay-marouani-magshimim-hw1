@@ -4,8 +4,8 @@
 
 void initStack(Stack* s)
 {
-	//s->stack = initList();
 	s->stack = new linkedList;
+	s->stack->next = NULL;
 	s->curSize = 0;
 }
 void push(Stack* s, unsigned int element)
@@ -38,14 +38,18 @@ int pop(Stack* s)
 
 bool isFull(Stack* s)
 {
-	return false; // Since there is no max size for the stack, the stack will always be full
+	return false; // Since there is no max size for the stack, the stack will never be full
 }
 
 void cleanStack(Stack* s)
 {
-	while (s->stack->next != NULL)
+	linkedList* curr = s->stack;
+	linkedList* temp = s->stack;
+	while (curr->next != NULL)
 	{
-		s->stack->num = 0;
+		temp = curr->next;
+		curr->num = 0;
+		delete(curr);
+		curr = temp;
 	}
-	delete(s->stack);
 }

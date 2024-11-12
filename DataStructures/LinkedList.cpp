@@ -1,11 +1,7 @@
 #include <iostream>
 #include "LinkedList.h"
 
-linkedList* initList()
-{
-	linkedList * list = new linkedList;
-	return list;
-}
+
 linkedList* add(linkedList* head, int num)
 {
 	linkedList* newNode = new linkedList;
