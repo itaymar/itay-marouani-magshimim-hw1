@@ -10,7 +10,11 @@ void initQueue(Queue* q, unsigned int size)
 
 void cleanQueue(Queue* q)
 {
-	delete(q);
+	for (int i = 0; i < q->curSize; i++)
+	{
+		q->queueArr[i] = 0;
+	}
+	delete[] q->queueArr;
 }
 
 void incQueue(Queue* s)
@@ -30,12 +34,14 @@ bool isEmpty(Queue* s)
 
 int dequeue(Queue* q)
 {
+	
 	if (isEmpty(q))
 	{
 		return -1;
 	}
 	else
 	{
+		int first = q->queueArr[0];
 		for (int i = 0; i < q->curSize - 1; i++)
 		{
 			q->queueArr[i] = q->queueArr[i + 1];
@@ -43,14 +49,7 @@ int dequeue(Queue* q)
 		q->curSize--;
 		q->queueArr[q->curSize] = 0;
 
-		if (isEmpty(q))
-		{
-			return -1;
-		}
-		else
-		{
-			return q->queueArr[0];
-		}
+		return first;
 	}
 }
 

@@ -23,7 +23,7 @@
     <ClCompile Include="Queue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="main1.cpp">
+    <ClCompile Include="tester.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
